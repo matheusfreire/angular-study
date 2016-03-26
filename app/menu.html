@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt_br" ng-app>
+<html lang="pt_br" ng-app="confusionApp">
 
 <head>
      <meta charset="utf-8">
@@ -26,57 +26,10 @@
 <body>
 
     <div class="container">
-        <div class="row row-content" ng-init="
-                dishes=[
-                         {
-                           name:'Uthapizza',
-                           image: 'images/uthapizza.png',
-                           category: 'mains',
-                           label:'Hot',
-                           price:'4.99',
-                           description:'A pizza made with pepperoni and cheese. You can\'t eat one single piece only '  ,
-                           comment: ''
-                        },
-                        {
-                           name:'Zucchipakoda',
-                           image: 'images/zucchipakoda.png',
-                           category: 'appetizer',
-                           label:'',
-                           price:'1.99',
-                           description:'Some pancake with honey sauce. Impossible to resist',
-                           comment: ''
-                        },
-                        {
-                           name:'Vadonut',
-                           image: 'images/vadonut.png',
-                           category: 'appetizer',
-                           label:'New',
-                           price:'1.99',
-                           description:'A fried donut, We improvise the donut!',
-                           comment: ''
-                        },
-                        {
-                           name:'ElaiCheese Cake',
-                           image: 'images/elaicheesecake.png',
-                           category: 'dessert',
-                           label:'',
-                           price:'2.99',
-                           description:'A delectable, semi-sweet New York Style Cheese Cake, with Graham cracker crust and spiced with Indian cardamoms',
-                           comment: ''
-                        }
-                        ]">
-            <!--ng-init="dish={-->
-                 <!--name:'Uthapizza',-->
-                 <!--image: 'images/uthapizza.png',-->
-                 <!--cateogry: 'mains',-->
-                 <!--label: 'Hot',-->
-                 <!--price: '12.99',-->
-                 <!--description: 'Insert your description here',-->
-                 <!--comment: ''-->
-            <!--}">-->
+        <div class="row row-content"  ng-controller="menuController as menuCtrl">
             <div class="col-xs-12">
                 <ul class="media-list">
-                    <li class="media" ng-repeat="dish in dishes">
+                    <li class="media" ng-repeat="dish in menuCtrl.dishes">
                         <div class="media-left media-middle">
                             <a href="#">
                                 <img class="media-object img-thumbnail" src="{{dish.image}}" alt="{{dish.name}}">
@@ -99,6 +52,53 @@
 
 
 <script src="../bower_components/angular/angular.min.js"></script>
+<script>
+    var app = angular.module('confusionApp', [])
+
+    app.controller('menuController', function(){
+        var dishes=[
+            {
+                name:'Uthapizza',
+                image: 'images/uthapizza.png',
+                category: 'mains',
+                label:'Hot',
+                price:'4.99',
+                description:'A pizza made with pepperoni and cheese. You can\'t eat one single piece only '  ,
+                comment: ''
+            },
+            {
+                name:'Zucchipakoda',
+                image: 'images/zucchipakoda.png',
+                category: 'appetizer',
+                label:'',
+                price:'1.99',
+                description:'Some pancake with honey sauce. Impossible to resist',
+                comment: ''
+            },
+            {
+                name:'Vadonut',
+                image: 'images/vadonut.png',
+                category: 'appetizer',
+                label:'New',
+                price:'1.99',
+                description:'A fried donut, We improvise the donut!',
+                comment: ''
+            },
+            {
+                name:'ElaiCheese Cake',
+                image: 'images/elaicheesecake.png',
+                category: 'dessert',
+                label:'',
+                price:'2.99',
+                description:'A delectable, semi-sweet New York Style Cheese Cake, with Graham cracker crust and spiced with Indian cardamoms',
+                comment: ''
+            }
+        ];
+
+        this.dishes = dishes;
+    });
+
+</script>
 
 </body>
 
