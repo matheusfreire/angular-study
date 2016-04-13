@@ -65,7 +65,7 @@ angular.module('confusionApp', [])
             return ($scope.tab === checkTab) ;
         };
 
-        $scope.toogleDetails = function(){
+        $scope.toggleDetails = function() {
             $scope.showDetails = !$scope.showDetails;
-        }
+        };
     }]);
